@@ -19,7 +19,9 @@
           <th>Cooked_before</th>
           <th>Timestamp</th>
           <th>Fooditem</th>
-          <th></th>
+          <th>Photo</th>
+           <th>DonationStatus</th>
+            <th>DonarLocation</th>
         </tr>
       </thead>
       <tbody>
