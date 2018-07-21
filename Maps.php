@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title> Map</title>
+  <title>Simple Map</title>
   <meta name="viewport" content="initial-scale=1.0">
   <meta charset="utf-8">
   <style>
@@ -24,13 +24,10 @@
 <body>
   <div>
     <button id="btnCoords">Show Donor</button>
-    <button id="btnPopup">Show Possible Delivery Location</button>
-    <button id="btnPopup2">Show me another Possible Location</button>
+    <button id="btnPopup">Show Possible Delivery Location-1</button>
+    <button id="btnPopup2">Show Possible Delivery Location-2</button>
     <button id="geoLocate">Locate me</button>
-    <button id="marker">Mark Center</button>
-    <button id="hide">Hide Marker</button>
-    <button id="travel">Travel</button>
-    <input type="text" id="txtGeo" />
+    
   </div>
   <div id="map"></div>
   <script>
@@ -67,9 +64,12 @@
       map.addListener('click', mapClick);
     }
     $("#btnCoords").click(function () {
-      var mumbai = new google.maps.LatLng(19.1204549, 72.8926039);
-      map.setCenter(mumbai);
-      //  map.panTo(mumbai);
+       var popupWindow = new google.maps.InfoWindow();
+      popupWindow.setContent("Donor");     
+   var mumbai = new google.maps.LatLng(19.1204549, 72.8926039);
+      map.panTo(mumbai); 
+popupWindow.setPosition({ lat: 19.2572799, lng: 72.8926039 });
+      popupWindow.open(map);
     });
     $("#travel").click(function () {
       var mumbai = new google.maps.LatLng(19.1204549, 72.8926039);
@@ -90,20 +90,15 @@
       }, 3000);
     });
     $("#btnPopup").click(function () {
-//for test
-var numberneedy1=10;
-var latneedy1=19.2572799;
-var longneedy1=72.89.26039;
-var numberneedy2=20;
       var popupWindow = new google.maps.InfoWindow();
-      popupWindow.setContent("Possible location with approx. '$numberneedy1' requirement");  // Number of needy people at langi needy
-      popupWindow.setPosition({lat:$latneedy1,lng:$longneedy1);
+      popupWindow.setContent("Approx. number of needy:10");
+      popupWindow.setPosition({ lat: 19.2752999, lng: 72.9926039 });
       popupWindow.open(map);
     });
     $("#btnPopup2").click(function () {
       var popupWindow = new google.maps.InfoWindow();
-      popupWindow.setContent("Possible location with approx. '$numberneedy2' requirement");
-      popupWindow.setPosition({ lat: 19.2572799, lng: 72.8926039 });
+      popupWindow.setContent("Approx. number of needy:15");
+      popupWindow.setPosition({ lat: 19.2952999, lng: 72.7925039 });
       popupWindow.open(map);
     });
     $("#geoLocate").click(function () {
