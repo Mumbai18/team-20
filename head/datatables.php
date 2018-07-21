@@ -1,3 +1,10 @@
+<?php
+
+require_once 'myfile.php'; 
+$db = new myClass();
+$getRows = $db->getRows("SELECT * FROM User");
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -19,13 +26,26 @@
           <th>Cooked_before</th>
           <th>Timestamp</th>
           <th>Fooditem</th>
-          <th>Photo</th>
            <th>DonationStatus</th>
-            <th>DonarLocation</th>
         </tr>
       </thead>
       <tbody>
-        <td></td>
+<?php
+         foreach ($getRows as $rows)
+        {
+        ?>
+        <tr>
+        <td><?php echo $rows['DonationID']; ?></td>
+        <td><?php echo $rows['DonorID']; ?></td>
+        <td><?php echo $rows['Food_quantity']; ?></td>
+        <td><?php echo $rows['Cooked_before']; ?></td>
+        <td><?php echo $rows['Timestamp']; ?></td>
+        <td><?php echo $rows['Fooditem']; ?></td>
+        <td><?php echo $rows['DonationStatus']; ?></td>
+        </tr>
+        <?php
+        }
+        ?>
         
       </tbody>
     </table>
