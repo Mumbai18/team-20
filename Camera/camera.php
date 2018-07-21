@@ -48,9 +48,15 @@
     .then((stream) => {
       player.srcObject = stream;
     });
+
+    var image = new Image();
+    image.src = canvas.toDataURL("image/png");
+    var dataurl = canvas.toDataURL;
+    //return image;
+
 </script>
 
-//from the canvas object, save it to local db or directly sent to server
+<!--from the canvas object, save it to local db or directly sent to server-->
 
 </body>
 </html>
