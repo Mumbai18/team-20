@@ -1,3 +1,6 @@
+<? php
+session_start();
+?>
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -13,9 +16,9 @@
       <div align="center">
         <div class="card" style="width: 50%;" align="center">
           <div class="card-block" id="card-block">
-            <a href="userinfo.php" style="text-decoration: none; margin-right: 25%;" >Name</a>
-            <button type="button" class="btn btn-success" style="float: right;margin-left: 2%;">Approve</button>
-            <button type="button" class="btn btn-info" style="float: right;">Reject</button>
+            <a href="userinfo.php" style="text-decoration: none; margin-right: 25%;" ></a>
+            <!-- <button type="button" class="btn btn-success" style="float: right;margin-left: 2%;" onclick="approve()"></button>
+            <button type="button" class="btn btn-info" style="float: right;" onclick="reject()"></button> -->
             <br />
           </div>
         </div>
@@ -24,8 +27,8 @@
       <div align="center">
         <div class="card" style="width: 50%;" align="center">
           <div class="card-block" id ="card-block2">
-            <a href="#" style="text-decoration: none; margin-right: 25%;">Name</a>
-            <a href="#" style="text-decoration: none; margin-left: 25%;">Name</a>
+            <a href="#" style="text-decoration: none; margin-right: 25%;"></a>
+            <a href="#" style="text-decoration: none; margin-left: 25%;"></a>
             <br />
           </div>
         </div>
@@ -36,6 +39,36 @@
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/js/bootstrap.min.js" integrity="sha384-vBWWzlZJ8ea9aCX4pEW3rVHjgjt7zpkNpZk+02D9phzyeVkE+jo0ieGizqPLForn" crossorigin="anonymous"></script>
   </body>
   <script type="text/javascript">
+    function approve(id)
+    {
+      alert(id);
+      var choice=1;
+      $.ajax({ 
+        method:"POST",
+        url: "approvereject.php",
+        data:'choice='+choice+'&id='+id,
+        dataType: 'text',
+        success:function(data)
+        {
+          alert("Value Changed");
+        }
+    });
+    }
+    function reject(id)
+    {
+      alert(id);
+      var choice=2;
+      $.ajax({ 
+        method:"POST",
+        url: "approvereject.php",
+                    data:'choice='+choice+'&id='+id,
+                    dataType: 'text',
+                    success:function(data)
+                    {
+                      alert("Tuple deleted");        
+                    }
+        });
+    }
     var ajaxcallschoice=1;
     $(document).ready(function(){
       $.ajax({ 
@@ -58,7 +91,7 @@
                        
                        for(var i=0;i<array.length;i+=2)
                        {
-                          printstring+= "<a href='userinfo.php' style='text-decoration: none; margin-right: 25%;' >"+array[i]+array[i+1]+"</a><button type='button' class='btn btn-success' style='float: right;margin-left: 2%;'>Approve</button><button type='button' class='btn btn-info' style='float: right;'>Reject</button>";
+                          printstring+= "<div class='panel'><br/><a href='userinfo.php?FirstName="+array[i]+"&Lastname="+array[i+1]+ "'style='text-decoration: none; margin-right: 25%;'>"+array[i]+array[i+1]+"</a><button type='button' class='btn btn-success' style='float: right;margin-left: 2%;' id='"+array[i]+" "+array[i+1]+"'onclick='approve(id)' >Approve</button><button type='button' class='btn btn-info' style='float: right;' id='"+array[i]+" "+array[i+1]+"' onclick='reject(id)'>Reject</button></div>";
                        }
                        // alert(printstring);
                        $('#card-block').html(printstring);        
@@ -72,7 +105,6 @@
         dataType: 'text',
                     success:function(data)
                     {
-                       // alert("This is second alert");
                        var array=[];
                        ar=data.split(',');
                        var k=0;
@@ -87,7 +119,6 @@
                        {
                           printstring+= "<a href='#' style='text-decoration: none; margin-right: 25%;'>"+array[0]+"</a><a href='#' style='text-decoration: none; margin-left: 25%;'>"+array[2]+"</a>";
                        }
-                       // alert(printstring);
                       $('#card-block2').html(printstring);        
                     }
     });  });     

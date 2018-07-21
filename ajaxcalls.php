@@ -15,20 +15,21 @@ if(! $conn ) {
 
 if($ajaxcallschoice==1)//AJAX called to change accept/reject value
 {
-	$sql = "SELECT FirstName,Lastname FROM user1  WHERE verfied= 0";
+	$sql = "SELECT * FROM user1  WHERE verfied= 0";
 	$retval = mysqli_query($conn,$sql );
 	if(! $retval) {
 	  die('Could not get data: ' . mysqli_error());
 	}
 	while($row = mysqli_fetch_array($retval, MYSQLI_ASSOC)) {
 	  if ($returnstring=="") {
-	  	$returnstring=$returnstring.$row['FirstName'];
+	  	$returnstring=$returnstring.$row['Firstname'];
 	    $returnstring=$returnstring.','.$row['Lastname'];
+	    // $returnstring=$returnstring.','.$row['Lastname'];
 
 	  }
 	  else
 	  {
-	  	$returnstring=$returnstring.','.$row['FirstName'];
+	  	$returnstring=$returnstring.','.$row['Firstname'];
 	    $returnstring=$returnstring.','.$row['Lastname']; 	
 	  }
 	  $data[] = $row;
