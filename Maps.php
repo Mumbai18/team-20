@@ -186,6 +186,12 @@ popupWindow.setPosition({ lat: 19.2572799, lng: 72.8926039 });
   <!-- Key is the API Key, callback is a JS function used to initialise the map  &callback=initMap-->
   <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAMxdGmGa60mA7EV-iPYauPrj9XB35qA6Q&callback=initMap" async
     defer></script>
+<form action="/CFG/Volunteer_Details.php">
+<button type="submit" class="btn btn-primary">Accept</button>
+</form>
+<form action="/CFG/Volunteer_home.php">
+<button type="submit" class="btn btn-primary">Reject</button>
+</form>
 </body>
 
 </html>
