@@ -9,6 +9,11 @@
 		<!-- Bootstrap -->
 		<link href="bootstrap/css/bootstrap.min.css" rel="stylesheet" />
 		<link href="css/style.css" rel="stylesheet" />
+		<style type="text/css">
+			th, td{
+				padding: 5px;
+			}			
+		</style>
 	</head>
 	<body>
 		<!-- This is the main section -->
