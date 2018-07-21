@@ -1,0 +1,62 @@
+create database annadhan;
+SHOW databases;
+USE annadhan;
+
+    create table User
+    (UserID int(10) primary key,
+    Firstname varchar(10),
+    Lastname varchar(10),
+    Location varchar(40),
+    Type int(1), 
+    Username varchar(10),
+    Password varchar(10),
+    Verfied char(1)
+    );
+
+     create table Admin
+    (AdminID int(10) primary key,
+    Firstname varchar(10),
+    Lastname varchar(10),
+    Location varchar(40),
+    Username varchar(10),
+    Password varchar(10)
+    );
+
+
+create table Donation
+(
+ DonationID int(10) primary key,
+ DonorID int(30),
+ foreign key(DonorID) references User(UserID),
+ Food_quantity varchar(30),
+ Cooked_before int(10),
+ Timestamp date,
+ Fooditem varchar(40),
+ Photo varchar(40),
+ DonationStatus varchar(20),
+ DonorLocation varchar(30)
+ );
+
+create table Delivery
+(
+ DeliveryID int(10) primary key,
+ foreign key(DeliveryID) references Donation(DonationID),
+ DeliveryPhoto varchar(40),
+ DeliveryStatus varchar(20)
+); 
+
+create table Needy
+(
+ NeedyID int(10) primary key,
+ NeedyLocation varchar(40),
+ NeedyCount int(10)
+); 
+
+create table Feedback
+(
+        Numberoffamilies int(10),
+        Avgnumberofpeople int(10),
+        WaterService int(2),
+        Residence int(2),
+        HealthService int(2)
+);
