@@ -6,7 +6,6 @@ echo'
 <head>
 
     <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-	<link rel="stylesheet" href="https://cdn.datatables.net/1.10.15/css/jquery.dataTables.min.css">
 	
 	<script src="http://code.jquery.com/jquery-1.12.4.min.js"></script>
 </head>
@@ -107,8 +106,8 @@ $(document).ready(function() {
 		
 			var foodqnt = $("#foodqnt").val();
 			var itemname = $("#itemname").val();
-			var cookedbfr = $("#cookedbfr").val();
-			var utilitynm = $("#utilitynm").val();
+			var cookedbf = $("#cookedbfr").val();
+			var Utilnm = $("#utilitynm").val();
 			var foodnm = $("#foodnm").val();
 			
 			
@@ -117,16 +116,14 @@ $(document).ready(function() {
 			  url:"add_donor.php",
 			  data: {
 					 foodqnt : foodqnt,
-					 cookedbfr : cookedbf,
-					 itemname : Itemnm,
-					 foodnm : Foodnm,
-					 utilitynm : Utilnm
+					 cookedbf : cookedbf,
+					 itemname : itemname,
+					 foodnm : foodnm,
+					 Utilnm : Utilnm
 					 },
 					success:function(result){
-					$("#nedonor_activate_formnew").trigger("reset");
-					$("#nedonor_alert").html(result);
-					getglobaluid();
-					showreloadedtable();
+						alert(result);
+					document.getElementById("nedonor_activate_formnew").reset();
 			  }
 			});
 	}
