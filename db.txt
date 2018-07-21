@@ -45,6 +45,14 @@ create table Delivery
  DeliveryStatus varchar(20)
 ); 
 
+ create table VolunteerDelivery
+(
+ DeliveryID int(10),
+ foreign key(DeliveryID) references Donation(DonationID),
+VolunteerID int(20) primary key,
+foreign key(VolunteerID) references User(UserID)
+)
+
 create table Needy
 (
  NeedyID int(10) primary key,
