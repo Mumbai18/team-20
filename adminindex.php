@@ -43,6 +43,7 @@ session_start();
     {
       alert(id);
       var choice=1;
+      
       $.ajax({ 
         method:"POST",
         url: "approvereject.php",
@@ -50,13 +51,17 @@ session_start();
         dataType: 'text',
         success:function(data)
         {
-          alert("Value Changed");
+          var sid="div"+id;
+          // alert("Value Changed");
+          document.getElementById(id).innerHTML="Approved";
+          
         }
     });
     }
     function reject(id)
     {
       alert(id);
+      // id="div"+id;
       var choice=2;
       $.ajax({ 
         method:"POST",
@@ -65,7 +70,9 @@ session_start();
                     dataType: 'text',
                     success:function(data)
                     {
-                      alert("Tuple deleted");        
+                      var sid="div"+id;
+                      // alert(sid);        
+                      document.getElementById(id).innerHTML="Rejected";
                     }
         });
     }
@@ -91,7 +98,7 @@ session_start();
                        
                        for(var i=0;i<array.length;i+=2)
                        {
-                          printstring+= "<div class='panel'><br/><a href='userinfo.php?FirstName="+array[i]+"&Lastname="+array[i+1]+ "'style='text-decoration: none; margin-right: 25%;'>"+array[i]+array[i+1]+"</a><button type='button' class='btn btn-success' style='float: right;margin-left: 2%;' id='"+array[i]+" "+array[i+1]+"'onclick='approve(id)' >Approve</button><button type='button' class='btn btn-info' style='float: right;' id='"+array[i]+" "+array[i+1]+"' onclick='reject(id)'>Reject</button></div>";
+                          printstring+= "<div class='panel' id='div"+array[i]+" "+array[i+1]+"'><br/><a href='userinfo.php?FirstName="+array[i]+"&Lastname="+array[i+1]+ "'style='text-decoration: none; margin-right: 25%;'>"+array[i]+array[i+1]+"</a><button type='button' class='btn btn-success' style='float: right;margin-left: 2%;' id='"+array[i]+" "+array[i+1]+"'onclick='approve(id)' >Approve</button><button type='button' class='btn btn-info' style='float: right;' id='"+array[i]+" "+array[i+1]+"' onclick='reject(id)'>Reject</button></div>";
                        }
                        // alert(printstring);
                        $('#card-block').html(printstring);        
