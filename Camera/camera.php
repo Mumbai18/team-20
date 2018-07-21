@@ -50,5 +50,7 @@
     });
 </script>
 
+//from the canvas object, save it to local db or directly sent to server
+
 </body>
 </html>
