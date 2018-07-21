@@ -20,8 +20,15 @@ echo "<table width=40% border='1' ><font size='16'>
 while($row = mysqli_fetch_array($result))
 {
 echo "<tr>";
-echo "<td>" . $row["Firstname"] . "</td><td></td>";
-echo "<td>" . $row["Food_quantity"] . "</td><td></td>";
+$row1= $row["Firstname"] ;
+echo "<td>";
+echo '<a href="/CFG/Volunteer_details.php?name=$row1">';
+echo $row1;
+echo '</a>';
+echo "</td><td></td>";
+echo "<td>";
+ echo $row["Food_quantity"];
+echo  "</td><td></td>";
 echo "</tr>";
 }
 echo "</font></table>";
