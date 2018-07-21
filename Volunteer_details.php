@@ -24,6 +24,8 @@ echo "</tr>";
 }
 echo "</font></table>";
 	}
+echo "<br><br><br>";
+echo "Donor Details:";
 $check_pro = "select User.Firstname,User.Contact from User,volunteerdelivery,Donation where User.UserID=2";//userid of donor
 $result = mysqli_query($con, $check_pro); 
 if(mysqli_num_rows($result)>0){
