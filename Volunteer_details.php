@@ -1,6 +1,17 @@
 <!DOCTYPE>
 
+<html>
+	<head><link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css" integrity="sha384-rwoIResjU2yc3z8GV/NPeZWAv56rSmLldC3R/AZzGRnGxQQKnKkoFVhFQhNUwEyJ" crossorigin="anonymous">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src='https://code.jquery.com/jquery-2.1.3.min.js'></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.0.2/jquery.min.js"></script>    
 
+
+		<title></title>
+</head>
+	
+<body>
+<div class="container-fluid"><?php include('header.php')?></div>
 <?php 
 include("db.php");
 global $donor;
@@ -51,11 +62,6 @@ echo "</font></table>";
 echo "</center>"	
 
 ?>
-<html>
-	<head>
-		<title>
-</head>
-	
-<body>
+
 </body>
 </html>
