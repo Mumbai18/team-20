@@ -6,15 +6,15 @@
               <button class="navbar-toggler" data-toggle="collapse" data-target="#mainNav">
                 <span class="navbar-toggler-icon"></span>
               </button>
-              <div class="collapse navbar-collapse" id="mainNav">
-                <div class="navbar-nav">
-                  <!-- <a class="navbar-brand" href="header-nightsky.html" style="max-width:10%;border-radius:50%;"><img src="logo1.jpg" class="img-fluid"></a> -->
+              <div class="collapse navbar-collapse" id="mainNav"> 
+                <div class="navbar-nav col-sm-12">
                   <a class="nav-item nav-link " href="#">Home</a>
                   <a class="nav-item nav-link " href="#">About Us</a>
+                  <a class="nav-item nav-link " href="logout.php">Logout</a>
                 </div>
               </div>
-              <div class="btn-group col-sm-1" style="right:0;left:auto;">
-              	<button  class="btn btn-success" onclick="relocate()">Logout</button>
+              <div class="btn-group col-sm-1">
+
               </div>
             </div>
           </nav>
