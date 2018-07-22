@@ -14,8 +14,9 @@ echo'
 					<form id="nedonor_activate_formnew" method="post" class="form-horizontal"  enctype="multipart/form-data">
 					<div class="panel panel-default padlittle">
 					<div class="panel-heading">Donor Details 
+					<input name="button1" type="button" value="Switch to Volunteer" style="float: right;">
 					</div>
-					
+				
 					<div class="panel-body">						
 						
 						<div class="form-group">
