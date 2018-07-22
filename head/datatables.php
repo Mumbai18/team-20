@@ -2,7 +2,8 @@
 
 require_once 'myfile.php'; 
 $db = new myClass();
-$getRows = $db->getRows("SELECT * FROM User");
+$getRows = $db->getRows("SELECT * FROM donation");
+//$insert = $db->insert("INSERT INTO User(username, password, firstname, surname) VALUE (?, ?, ?, ?)", ["himesh", "himu9292", "Himesh", "bhatiaa"]);
 ?>
 
 <!DOCTYPE html>

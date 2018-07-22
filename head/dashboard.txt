@@ -1,0 +1,49 @@
+SET SQL_SAFE_UPDATES=0;
+insert into User(UserID, Firstname, Lastname, Location, Type, Username, Password, Verfied)
+values(1,'Rahul','Shah','Mumbai', 0, 'rahul', 'pass123', 1),
+(2,'Rahul','Shah','Mumbai', 1, 'rahul', 'pass123', 0),
+(3,'Rahul','Shah','Mumbai', 2, 'rahul', 'pass123', 1),
+(4,'Rahul','Shah','Mumbai', 0, 'rahul', 'pass123', 1),
+(5,'Rahul','Shah','Mumbai', 1, 'rahul', 'pass123', 0);
+
+insert into Admin(AdminID, Firstname, Lastname, Location, Username, Password)
+values(6,'Deepali','Boda','Mumbai','deepali', 'pass456'),
+(7,'Deepali','Boda','Mumbai','deepali', 'pass456'),
+(8,'Deepali','Boda','Mumbai','deepali', 'pass456'),
+(9,'Deepali','Boda','Mumbai','deepali', 'pass456'),
+(10,'Deepali','Boda','Mumbai','deepali', 'pass456'),;
+
+insert into Donation(DonationID, DonorID, Food_quantity, Cooked_before, Timestamp, Fooditem, Photo, DonationStatus, DonorLocation)
+values(11, 1, 20, 2, 123, 'rice', '1.png', 345,'pune'),
+(12, 2, 20, 2, 123, 'rice', '1.png', 345,'pune'),
+(13, 3, 20, 2, 123, 'rice', '1.png', 345,'pune'),
+(14, 4, 20, 2, 123, 'rice', '1.png', 345,'pune'),
+(15, 5, 20, 2, 123, 'rice', '1.png', 345,'pune'),;
+
+insert into Delivery( DeliveryID, DeliveryPhoto, DeliveryStatus)
+values(11, '2.png', 0),
+(12, '2.png', 1),
+(13, '2.png', 0),
+(14, '2.png', 1),
+(15, '2.png', 1);
+
+insert into VolunteerDelivery(DeliveryID, VolunteerID)
+values(11, 1),
+(12, 2),
+(13, 3),
+(14, 4),
+(15, 5);
+
+insert into Needy(NeedyID, NeedyLocation, NeedyCount)
+values(1, 'dubai', 15),
+(2, 'dubai', 15),
+(3, 'dubai', 15),
+(4, 'dubai', 15),
+(5, 'dubai', 15);
+
+insert into Feedback(Numberoffamilies, Avgnumberofpeople, WaterService, Residence, HealthService)
+values(6, 4, 'good', 'bombay', 'good'),
+(6, 4, 'good', 'bombay', 'good'),
+(6, 4, 'good', 'bombay', 'good'),
+(6, 4, 'good', 'bombay', 'good'),
+(6, 4, 'good', 'bombay', 'good');
