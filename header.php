@@ -9,11 +9,11 @@
               <div class="collapse navbar-collapse" id="mainNav">
                 <div class="navbar-nav">
                   <!-- <a class="navbar-brand" href="header-nightsky.html" style="max-width:10%;border-radius:50%;"><img src="logo1.jpg" class="img-fluid"></a> -->
-                  <a class="nav-item nav-link " href="header-nightsky.php">Home</a>
-                  <a class="nav-item nav-link " href="AboutUs.php">About Us</a>
+                  <a class="nav-item nav-link " href="#">Home</a>
+                  <a class="nav-item nav-link " href="#">About Us</a>
                 </div>
               </div>
-              <div class="btn-group" style="right:0;left:auto;">
+              <div class="btn-group col-sm-1" style="right:0;left:auto;">
               	<button  class="btn btn-success" onclick="relocate()">Logout</button>
               </div>
             </div>
