@@ -30,9 +30,9 @@ session_start();
       <br />
       <div align="center">
         <div class="card" style="width: 50%;" align="center">
-          <div class="card-block" id ="card-block2">
-            <a href="#" style="text-decoration: none; margin-right: 25%;"></a>
-            <a href="#" style="text-decoration: none; margin-left: 25%;"></a>
+          <div class="card-title"><b>Current Drives</b></div>
+          <div class="card-block panel" id ="card-block2">
+
             <br />
           </div>
         </div>
@@ -45,7 +45,6 @@ session_start();
   <script type="text/javascript">
     function approve(id)
     {
-      // alert(id);
       var choice=1;
       
       $.ajax({ 
@@ -55,17 +54,12 @@ session_start();
         dataType: 'text',
         success:function(data)
         {
-          var sid="div"+id;
-          // alert("Value Changed");
-          document.getElementById(id).innerHTML="Approved";
-
+          alert("Approved !!!!");
         }
     });
     }
     function reject(id)
     {
-      // alert(id);
-      // id="div"+id;
       var choice=2;
       $.ajax({ 
         method:"POST",
@@ -76,7 +70,8 @@ session_start();
                     {
                       var sid="div"+id;
                       // alert(sid);        
-                      document.getElementById(id).innerHTML="Rejected";
+                      // document.getElementById(id).innerHTML="Rejected";
+                      alert("Rejected !!!!");
                     }
         });
     }
@@ -102,7 +97,7 @@ session_start();
                        
                        for(var i=0;i<array.length;i+=2)
                        {
-                          printstring+= "<div class='panel' id='div"+array[i]+" "+array[i+1]+"'><br/><a href='userinfo.php?FirstName="+array[i]+"&Lastname="+array[i+1]+ "'style='text-decoration: none; margin-right: 25%;'>"+array[i]+array[i+1]+"</a><button type='button' class='btn btn-success' style='float: right;margin-left: 2%;' id='"+array[i]+" "+array[i+1]+"'onclick='approve(id)' >Approve</button><button type='button' class='btn btn-info' style='float: right;' id=r'"+array[i]+" "+array[i+1]+"' onclick='reject(id)'>Reject</button></div>";
+                          printstring+= "<div class='panel' id='div"+array[i]+" "+array[i+1]+"'><br/><a href='userinfo.php?FirstName="+array[i]+"&Lastname="+array[i+1]+ "'style='text-decoration: none; margin-right: 25%;'>"+array[i]+array[i+1]+"</a><button type='button' class='btn btn-success col-sm-12 my-1' style='float: right;margin-left: 2%;' id='"+array[i]+" "+array[i+1]+"'onclick='approve(id)' >Approve</button><button type='button' class='btn btn-info col-sm-12' style='float: right;' id='"+array[i]+" "+array[i+1]+"' onclick='reject(id)'>Reject</button></div>";
                        }
                        // alert(printstring);
                        $('#card-block').html(printstring);        
@@ -128,7 +123,7 @@ session_start();
                        
                        for(var i=0;i<array.length;i+=4)
                        {
-                          printstring+= "<a href='#' style='text-decoration: none; margin-right: 25%;'>"+array[0]+"</a><a href='#' style='text-decoration: none; margin-left: 25%;'>"+array[2]+"</a>";
+                          printstring+= "<div class='col-sm-3'><br/><a href='#' style='text-decoration: none; margin-right: 25%;'>"+array[i]+"</a><a href='#' style='text-decoration: none; margin-left: 25%;'>"+array[i+2]+"</a></div>";
                        }
                       $('#card-block2').html(printstring);        
                     }
