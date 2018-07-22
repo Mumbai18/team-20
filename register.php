@@ -10,10 +10,11 @@ require "formconfig.php";
   <title>Register.php</title>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-  <link rel="stylesheet" type="text/css" href ="style.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css" integrity="sha384-rwoIResjU2yc3z8GV/NPeZWAv56rSmLldC3R/AZzGRnGxQQKnKkoFVhFQhNUwEyJ" crossorigin="anonymous">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src='https://code.jquery.com/jquery-2.1.3.min.js'></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.0.2/jquery.min.js"></script>    
+
 
   <style>
   .main{
@@ -27,7 +28,7 @@ require "formconfig.php";
   </style>
 </head>
 <body>
-
+<div class="container-fluid"><?php include('header.php')?></div>
 <div class="container">
 <div class="main" style="margin:50px; padding: 25px;">
 <h2>Register Here</h2>
@@ -55,13 +56,13 @@ require "formconfig.php";
       <div class="form-group">
           <label class="control-label col-sm-2" for="email">Password:</label>
           <div class="col-sm-8">
-            <input type="text" name="Password" class="form-control" id="Password" placeholder="Enter Password" required>
+            <input type="password" name="Password" class="form-control" id="Password" placeholder="Enter Password" required>
           </div>
       </div>
       <div class="form-group">
           <label class="control-label col-sm-2" for="email">Confirm Password:</label>
           <div class="col-sm-8">
-            <input type="text" name="ConfirmPassword" class="form-control" id="ConfirmPassword" placeholder="Enter Password" required>
+            <input type="password" name="ConfirmPassword" class="form-control" id="ConfirmPassword" placeholder="Enter Password" required>
           </div>
       </div>
 
@@ -72,9 +73,7 @@ require "formconfig.php";
           </div>
       </div>
 
-<p>Click the button to get your coordinates.</p>
 
-<button onclick="getLocation()">Try It</button>
 
 <p id="demo"></p>
 
@@ -89,13 +88,11 @@ function getLocation() {
         x.innerHTML = "Geolocation is not supported by this browser.";
     }
 }
-   global $latitude =  "";
-   global $longitude = "";
 function showPosition(position) {
     x.innerHTML = "Latitude: " + position.coords.latitude + 
     "<br>Longitude: " + position.coords.longitude;
-    $latitude =  position.coords.latitude;
-    $longitude = position.coords.longitude;
+    //$latitude =  position.coords.latitude;
+   // $longitude = position.coords.longitude;
 }
 
 </script>
@@ -103,7 +100,7 @@ function showPosition(position) {
 
 
       <div class="form-group">
-          <label class="control-label col-sm-2" for="Type">Type</label>
+          <label class="control-label col-sm-12" for="Type">Type(0-Donor,1-Space Volunteer,2-Delivery Volunteers)</label>
           <div class="col-sm-8">          
             <input type="text" name="Type" class="form-control" id="Type" placeholder="Enter Type" required>
           </div>
@@ -137,6 +134,7 @@ if(isset($_POST['submit_btn']))
 	
 	if (isset($_POST['Username'])) {
     	$email = $_POST['Username'];
+	$type=$_POST['Type'];
       //echo $email;
 	}
 
@@ -168,14 +166,20 @@ if(isset($_POST['submit_btn']))
 			else
 			{
         $random = rand();
-				$query = "insert into User (UserID,Username,Password, latitude, longitude) values ('$random','$email','$password', '$latitude', '$longitude')";
+				$query = "insert into User (UserID,Username,Password) values ('$random','$email','$password')";
+				
 				$query_run2 = mysqli_query($con,$query);
+				echo $query_run2;
         echo $query;
 			
 				if($query_run2)
 				{
+					
 					echo '<script type= "text/javascript"> alert ("registered successfully...Go to login page") </script> ';
-				}
+					if($type==1) echo'<script type= "text/javascript"> window.location = "/cfg/Volunteer_home.php"</script>';
+					if($type==2) echo'<script type= "text/javascript"> window.location = "/cfg/donorform.php"</script>';
+					if($type==0) echo'<script type= "text/javascript"> window.location = "/cfg/adminindex.php"</script>';				
+}
 				else
 				{
 					echo '<script type= "text/javascript"> alert ("error") </script> ';
