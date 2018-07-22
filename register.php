@@ -56,13 +56,13 @@ require "formconfig.php";
       <div class="form-group">
           <label class="control-label col-sm-2" for="email">Password:</label>
           <div class="col-sm-8">
-            <input type="text" name="Password" class="form-control" id="Password" placeholder="Enter Password" required>
+            <input type="password" name="Password" class="form-control" id="Password" placeholder="Enter Password" required>
           </div>
       </div>
       <div class="form-group">
           <label class="control-label col-sm-2" for="email">Confirm Password:</label>
           <div class="col-sm-8">
-            <input type="text" name="ConfirmPassword" class="form-control" id="ConfirmPassword" placeholder="Enter Password" required>
+            <input type="password" name="ConfirmPassword" class="form-control" id="ConfirmPassword" placeholder="Enter Password" required>
           </div>
       </div>
 
@@ -100,7 +100,7 @@ function showPosition(position) {
 
 
       <div class="form-group">
-          <label class="control-label col-sm-2" for="Type">Type</label>
+          <label class="control-label col-sm-12" for="Type">Type(0-Donor,1-Space Volunteer,2-Delivery Volunteers)</label>
           <div class="col-sm-8">          
             <input type="text" name="Type" class="form-control" id="Type" placeholder="Enter Type" required>
           </div>
