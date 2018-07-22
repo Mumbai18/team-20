@@ -72,9 +72,7 @@ require "formconfig.php";
           </div>
       </div>
 
-<p>Click the button to get your coordinates.</p>
 
-<button onclick="getLocation()">Try It</button>
 
 <p id="demo"></p>
 
@@ -89,13 +87,11 @@ function getLocation() {
         x.innerHTML = "Geolocation is not supported by this browser.";
     }
 }
-   global $latitude =  "";
-   global $longitude = "";
 function showPosition(position) {
     x.innerHTML = "Latitude: " + position.coords.latitude + 
     "<br>Longitude: " + position.coords.longitude;
-    $latitude =  position.coords.latitude;
-    $longitude = position.coords.longitude;
+    //$latitude =  position.coords.latitude;
+   // $longitude = position.coords.longitude;
 }
 
 </script>
@@ -137,6 +133,7 @@ if(isset($_POST['submit_btn']))
 	
 	if (isset($_POST['Username'])) {
     	$email = $_POST['Username'];
+	$type=$_POST['Type'];
       //echo $email;
 	}
 
@@ -168,14 +165,20 @@ if(isset($_POST['submit_btn']))
 			else
 			{
         $random = rand();
-				$query = "insert into User (UserID,Username,Password, latitude, longitude) values ('$random','$email','$password', '$latitude', '$longitude')";
+				$query = "insert into User (UserID,Username,Password) values ('$random','$email','$password')";
+				
 				$query_run2 = mysqli_query($con,$query);
+				echo $query_run2;
         echo $query;
 			
 				if($query_run2)
 				{
+					
 					echo '<script type= "text/javascript"> alert ("registered successfully...Go to login page") </script> ';
-				}
+					if($type==1) echo'<script type= "text/javascript"> window.location = "/cfg/Volunteer_home.php"</script>';
+					if($type==2) echo'<script type= "text/javascript"> window.location = "/cfg/donorform.php"</script>';
+					if($type==0) echo'<script type= "text/javascript"> window.location = "/cfg/adminindex.php"</script>';				
+}
 				else
 				{
 					echo '<script type= "text/javascript"> alert ("error") </script> ';

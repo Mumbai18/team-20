@@ -22,7 +22,7 @@ while($row = mysqli_fetch_array($result))
 echo "<tr>";
 $row1= $row["Firstname"] ;
 echo "<td>";
-echo '<a href="/CFG/Volunteer_details.php?name=$row1">';
+echo '<a href="/CFG/Maps.php?name=$row1">';
 echo $row1;
 echo '</a>';
 echo "</td><td></td>";
